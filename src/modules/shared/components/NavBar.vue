@@ -1,32 +1,34 @@
 <template>
   <div>
     <!-- 
-      <router-link :to="{ name: 'home'}">Pokemon List</router-link>
-      <router-link :to="{ name: 'pokemon-id', params: { id: '123' } }"
+      <router-link :to='{ name: 'home'}'>Pokemon List</router-link>
+      <router-link :to='{ name: 'pokemon-id', params: { id: '123' } }'
         >Pokemon</router-link
       >
-      <router-link :to="{ name: 'about'}">About</router-link>
+      <router-link :to='{ name: 'about'}'>About</router-link>
     -->
-    <CustumLink v-for="link in links" :key="link.to" :link="link" />
+    <CustumLink v-for='link in links' :key='link.to' :link='link' />
   </div>
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent } from 'vue';
 
 export default {
   data() {
     return {
       links: [
-        { to: '/home', name: 'Home' },
-        { to: '/pokemonid/50', name: 'Por ID' },
-        { to: '/about', name: 'About' },
+        { to: 'pokemon-home', name: 'Pokemons' },
+        { to: 'pokemonid', name: 'Por ID', id: '131' },
+        { to: 'pokemon-about', name: 'About' },
+        { to: 'dbz-characters', name: 'Personajes' },
+        { to: 'dbz-about', name: 'DBZ-About' },
         { to: 'https://google.com', name: 'Google' },
       ],
     };
   },
   components: {
-    CustumLink: defineAsyncComponent(() => import("./CustumLink.vue")),
+    CustumLink: defineAsyncComponent(() => import('./CustumLink.vue')),
   },
 };
 </script>
